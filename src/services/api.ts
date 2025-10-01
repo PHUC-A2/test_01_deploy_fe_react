@@ -28,7 +28,7 @@ const deleteUserApi = (id: number) => {
 
 
 const getHomeApi = () => {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/`
+    const url = `${import.meta.env.VITE_BACKEND_URL}/hello`
     return axios.get(url);
 }
 
