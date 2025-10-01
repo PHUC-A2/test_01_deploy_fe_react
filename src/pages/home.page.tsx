@@ -14,16 +14,17 @@ const HomePage = () => {
         setLoading(true);
         try {
             const res = await getHomeApi();
-            console.log(res.data);
-            setChuoi(res.data);
-            setLoading(false);
+            console.log(res.data.data);
+            setChuoi(res.data.data); // lấy field message thôi
         } catch (error) {
             console.error("API Error:", error);
             setChuoi("");
             message.error("Lỗi kết nối API 😢");
+        } finally {
             setLoading(false);
         }
     };
+
 
     useEffect(() => {
         fetchHello();
@@ -43,7 +44,7 @@ const HomePage = () => {
             >
                 <Card
                     style={{ width: 450, borderRadius: 16, textAlign: "center" }}
-                    bordered={false}
+                    variant="borderless"
                     hoverable
                 >
                     <Space direction="vertical" size="large" style={{ width: "100%" }}>
